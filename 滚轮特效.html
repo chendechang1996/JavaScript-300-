@@ -1,0 +1,52 @@
+# JavaScript-300-
+练习
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚轮</title>
+	<style type="text/css">
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		#div1 {
+			position: fixed;
+			background: #999;
+			height: 100px;
+			width: 100%;
+			transition: height 0.5s;
+		}
+	</style>
+</head>
+<body>
+
+<!-- 定义标签，让页面比较长 -->
+<div id="div1">1</div>
+<p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p>
+<p>这是底部啦</p>
+
+
+<script type="text/javascript">
+/**
+ *为窗口添加滚动条事件其实非常的简单，
+ *window.onscroll=function(){};
+ * 谷歌不识别document.documentElement.scrollTop，必须要加上document.body.scrollTop；
+ */
+	var div1 = document.getElementById('div1');
+
+	function getScroll() {
+		if(document.body.scrollTop || document.documentElement.scrollTop == 0) {
+			div1.style.height = '100px';
+		}else {
+			div1.style.height = '50px';
+		}
+	}
+	window.onscroll = function() {
+		getScroll();
+	}
+
+</script>
+	
+</body>
+</html>
