@@ -1,0 +1,67 @@
+# JavaScript-300-
+练习
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片拖放</title>
+</head>
+<body>
+
+<img id="mypic" style="left:10px;top:10px;position:absolute;width:100px;height:100px;" src="../1.png" alt="图片">
+
+<script type="text/javascript">
+	function dragPic(e) {
+		var e = e || window.event;	//获取真实的事件变量（获取事件对象）
+		var myElement = e.srcElement || e.target;	//获取事件源DOM
+
+		if(e.preventDefault) {		//取消事件的默认动作函数preventDefault()
+			e.preventDefault();		//避免默认的事件处理
+		}else {
+			//如果没有preventDefault则返回值为false
+			e.returnvalue = false;//如果设置了该属性，它的值比事件句柄的返回值优先级高。把这个属性设置为 fasle，可以取消发生事件的源元素的默认动作
+		}
+		var mypic = document.getElementById("mypic");
+		mypic['draging'] = true;	//设置拖动属性为true
+		//计算得到拖动以前的图片距离左上角的left和top的值
+		var relLeft = e.clientX - parseInt(myElement.style.left);
+		var relTop = e.clientY - parseInt(myElement.style.top);
+		console.log(relLeft);
+		//当鼠标放开时，则停止拖动
+		myElement.onmouseup = function() {
+			mypic['draging'] = false;	//设置拖动属性为false
+		}
+		//定义鼠标的移动事件，注意这里是document的
+		//表示图片的整个网页里的鼠标移动
+		document.onmousemove = function(eMove) {
+			//获取真实的事件变量（事件对象）
+			var eMove = eMove || window.event;
+			if(mypic['draging'] == true) {	//如果处于正在拖动中
+				//设置新的left的值，减去鼠标点距左上角的距离
+				myElement.style.left = eMove.clientX - relLeft + "px";
+				//设置新的top的值，减去鼠标点距左上角的距离
+				myElement.style.top = eMove.clientY - relTop + "px";
+				console.log(myElement.style.left);
+				return false;//终止事件
+			}
+		}
+	}
+	//当网页加载好以后就为图片拖动定义事件
+	window.onload = function() {
+		//获取图片的DOM
+		var mypic = document.getElementById("mypic");
+		//定义一个属性用于存储是否正在拖动
+		mypic['draging'] = false;
+		//根据浏览器的不同，调用不同的添加事件监听器
+		if(navigator.userAgent.indexOf("MSIE")>0) {//IE（判断浏览器类型）
+			//为图片定义鼠标按下事件
+			mypic.attachEvent("onmousedown",dragPic);
+		}else {//非IE
+			//为图片定义鼠标按下事件
+			mypic.addEventListener("mousedown",dragPic,false);
+		}
+	}
+</script>
+	
+</body>
+</html>
