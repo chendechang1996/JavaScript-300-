@@ -1,0 +1,45 @@
+# JavaScript-300-
+练习
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>onmouseover onmouseout</title>
+</head>
+<body>
+
+<div id="aba" style="width:500px;height:500px;" >onmouseover、onmouseout</div>
+<div id="m01" style="width:500px;height:500px;">鼠标移进移出</div>
+
+<script type="text/javascript">
+/**
+ * onmouseout 和onmouseover 全部要小写 
+ */
+	var obj1=document.getElementById("aba");
+	var obj2=document.getElementById("m01");
+	obj1.onmouseover = function (){
+		this.style.background="#65CBFF";
+		this.style.fontSize = '50px';
+		return true;
+	}
+	obj1.onmouseout=function (){
+		this.style.backgroundColor="#EEEEEE";
+		this.style.fontSize = '18px';
+		return true;
+	}
+
+	obj2.onmouseover = function (){
+		this.style.background="#65CBFF";
+		return true;
+	}
+	obj2.onmouseout=function (){
+		this.style.background="#EEEEEE";
+		return true;
+	}
+
+
+
+</script>
+	
+</body>
+</html>
