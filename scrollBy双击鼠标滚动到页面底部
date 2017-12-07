@@ -1,0 +1,40 @@
+# JavaScript-300-
+练习
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scrollBy(x,y)滚轮函数</title>
+</head>
+<body>
+
+<!-- 定义标签，让页面比较长 -->
+<p>双击开始滚屏，单击则停止</p>
+<p>1</p><p>2</p><p>3</p><p>4</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p><p>5</p>
+<p>这是底部啦</p>
+
+
+<script type="text/javascript">
+	var nowPos;		//当前的位置
+	var myTimer;	//定时器变量
+	function startIt() {	//开始函数
+		//开始定时器，以10毫秒为单位
+		myTimer = window.setInterval("scrollPage()",10);
+
+	}
+	//停止函数
+	function stopIt() {
+		//取消定时器
+		clearInterval(myTimer);
+	}
+	//滚动屏幕函数
+	function scrollPage() {
+		window.scrollBy(0,10);	//以一像素为单位开始滚屏
+	}
+	document.onmousedown = stopIt;	//监听单击事件
+	document.ondblclick = startIt;	//监听双击事件
+
+</script>
+	
+</body>
+</html>
